@@ -6,6 +6,7 @@ public class HiddenLayer extends Layer {
     private final double[] neuronBiases;
     private final double[][] neuronWeights;
     private final Layer m_prevLayer;
+    private Layer m_nextLayer = null;
 
     private double[] neuronActivations;
 
@@ -45,5 +46,15 @@ public class HiddenLayer extends Layer {
     @Override
     public Layer getPrevLayer() {
         return m_prevLayer;
+    }
+
+    @Override
+    public Layer getNextLayer() {
+      return m_nextLayer;
+    }
+    
+    @Override
+    public void setNextLayer(Lyaer next) {
+      if (m_nextLayer == null) m_nextLayer = next;
     }
 }

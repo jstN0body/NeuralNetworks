@@ -50,12 +50,7 @@ public class NeuralNetwork {
     }
 
     public void backwardProp() {
-        double error = cost();
-
-        updateWeights(m_outputLayer, error);
-        for (int i = m_hiddenLayers.length-1; i >= 0; i--) {
-            updateWeights(m_hiddenLayers[i], error);
-        }
+        double[][] netError = MathUtil.fromArray(MathUtil.subtract(trainingSet.getOutput(), m_outputLayer.getActivations()));
     }
 
     public void train(int iterations) {
@@ -78,21 +73,5 @@ public class NeuralNetwork {
         cost /= n;
 
         return cost;
-    }
-
-    public double weightAdjustment(double error, double prevNeuronActivation, double currentNeuronActivation) {
-        return m_learningRate * error * prevNeuronActivation * MathUtil.sigmoidDerivative(currentNeuronActivation);
-    }
-
-    public void updateWeights(Layer currentLayer, double error) {
-        double[][] weights = currentLayer.getWeights();
-        for (int r = 0; r < weights.length; r++) {
-            for (int c = 0; c < weights[0].length; c++) {
-                double prev = currentLayer.getPrevLayer().getActivations()[c];
-                double curr = currentLayer.getActivations()[r];
-
-                weights[r][c] += weightAdjustment(error, prev, curr);
-            }
-        }
     }
 }

@@ -8,10 +8,10 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        InputLayer input = new InputLayer(1, 1);
-        HiddenLayer hidden = new HiddenLayer(2, input);
-        OutputLayer out = new OutputLayer(1, hidden);
-        double[] expectedOutput = {0};
+        InputLayer input = new InputLayer(1, 0, 1, 2);
+        HiddenLayer hidden = new HiddenLayer(4, input);
+        OutputLayer out = new OutputLayer(4, hidden);
+        double[] expectedOutput = {1, 0, 1, 0};
 
         TrainingSet trainingSet = new TrainingSet(input.getActivations(), expectedOutput);
 

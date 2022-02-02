@@ -18,4 +18,10 @@ public class Layer {
     public Layer getPrevLayer() {
         return new Layer(0);
     }
+
+    public Layer getNextLayer() {
+      return new Layer(0);
+    }
+
+    public void setNextLayer(Layer next) {}
 }

@@ -4,16 +4,17 @@ public class OutputLayer extends Layer {
 
     private final double[] neuronBiases;
     private final double[][] neuronWeights;
-    private final Layer m_prevLayer;
+    private final Layer m_prevLayer, m_nextLayer;
 
     private double[] neuronActivations;
 
-    public OutputLayer(int neuronAmount, Layer prevLayer) {
+    public OutputLayer(int neuronAmount, Layer prevLayer, Layer nextLayer) {
         super(neuronAmount);
 
         neuronBiases = new double[neuronAmount];
         neuronActivations = new double[neuronAmount];
         m_prevLayer = prevLayer;
+        m_nextLayer = nextLayer;
 
         neuronWeights = new double[neuronAmount][prevLayer.m_neuronAmount];
         for (int r = 0; r < neuronAmount; r++) {
@@ -44,5 +45,10 @@ public class OutputLayer extends Layer {
 
     public double[] getBiases() {
         return neuronBiases;
+    }
+
+    @Override
+    public Layer getNextLayer() {
+      return m_nextLayer;
     }
 }
