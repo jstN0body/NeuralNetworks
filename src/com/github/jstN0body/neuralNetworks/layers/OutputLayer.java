@@ -2,6 +2,7 @@ package com.github.jstN0body.neuralNetworks.layers;
 
 public class OutputLayer extends Layer {
 
+    private final double[] neuronBiases;
     private final double[][] neuronWeights;
     private final Layer m_prevLayer;
 
@@ -9,6 +10,8 @@ public class OutputLayer extends Layer {
 
     public OutputLayer(int neuronAmount, Layer prevLayer) {
         super(neuronAmount);
+
+        neuronBiases = new double[neuronAmount];
         neuronActivations = new double[neuronAmount];
         m_prevLayer = prevLayer;
 
@@ -37,5 +40,9 @@ public class OutputLayer extends Layer {
     @Override
     public Layer getPrevLayer() {
         return m_prevLayer;
+    }
+
+    public double[] getBiases() {
+        return neuronBiases;
     }
 }

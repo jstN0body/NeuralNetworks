@@ -8,16 +8,16 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        InputLayer input = new InputLayer(1, 3, 2);
-        HiddenLayer hidden = new HiddenLayer(3, input);
-        OutputLayer out = new OutputLayer(3, hidden);
-        double[] expectedOutput = {2, 6, 4};
+        InputLayer input = new InputLayer(1, 1);
+        HiddenLayer hidden = new HiddenLayer(2, input);
+        OutputLayer out = new OutputLayer(1, hidden);
+        double[] expectedOutput = {0};
 
         TrainingSet trainingSet = new TrainingSet(input.getActivations(), expectedOutput);
 
         System.out.println(Arrays.deepToString(hidden.getWeights()));
         NeuralNetwork network = new NeuralNetwork(0.25, trainingSet, out, hidden);
-        network.train(100);
+        network.train(10000);
         System.out.println(Arrays.deepToString(hidden.getWeights()));
     }
 }

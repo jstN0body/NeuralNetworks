@@ -42,8 +42,8 @@ public class NeuralNetwork {
 
         for (int i = 0; i < weights.length; i++) {
             double[] a = MathUtil.dotProduct(weights[i], prevActivations);
-            double weightedSum = MathUtil.summateArray(a);
-            layerActivations[i] = weightedSum;
+            double weightedSum = MathUtil.summateArray(a) + m_outputLayer.getBiases()[i];
+            layerActivations[i] = MathUtil.sigmoid(weightedSum);
         }
 
         m_outputLayer.setActivations(layerActivations);
