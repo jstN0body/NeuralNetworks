@@ -18,6 +18,13 @@ public class Matrix {
         }
     }
 
+    public Matrix(int length, double fill) {
+        data = new double[1][length];
+        for (int i = 0; i < length; i++) {
+            data[0][i] = fill;
+        }
+    }
+
     public void print() {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
@@ -58,7 +65,7 @@ public class Matrix {
     }
 
     public List<Double> toArray() {
-        List<Double> temp = new ArrayList<Double>();
+        List<Double> temp = new ArrayList<>();
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {

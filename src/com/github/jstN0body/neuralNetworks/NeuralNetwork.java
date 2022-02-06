@@ -1,24 +1,30 @@
 package com.github.jstN0body.neuralNetworks;
 
+import com.github.jstN0body.neuralNetworks.training.TrainingSet;
+
+import java.util.Arrays;
+import java.util.List;
+
 public class NeuralNetwork {
 
-    private final int m_inputSize;
+    private TrainingSet m_trainingSet;
+
+    private final double m_learningRate;
     private final Layer[] layers;
     private final Layer outputLayer;
 
-    public NeuralNetwork(int inputSize, int layerAmount, int... layerSizes) {
-        m_inputSize = inputSize;
+
+    public NeuralNetwork(TrainingSet trainingSet, double learningRate, int layerAmount, int... hiddenLayerSizes) {
+        m_trainingSet = trainingSet;
+        m_learningRate = learningRate;
         layers = new Layer[layerAmount];
 
-        for (int i = 0; i < layerAmount; i++) {
-            layers[i] = new Layer(layerSizes[i], i, this);
+        for (int i = 0; i < layerAmount-1; i++) {
+            layers[i] = new Layer(hiddenLayerSizes[i], i, this);
         }
 
-        outputLayer = layers[layerAmount-1];
-    }
-
-    public int getInputSize() {
-        return m_inputSize;
+        outputLayer = new Layer(trainingSet.getOutput().length, layerAmount-1, this);
+        layers[layerAmount-1] = outputLayer;
     }
 
     public Layer getLayer(int layer) {
@@ -29,8 +35,16 @@ public class NeuralNetwork {
         return outputLayer;
     }
 
-    public void forwardProp(double[] inputArray) {
-        Matrix input = Matrix.fromArray(inputArray);
+    public TrainingSet getTrainingSet() {
+        return m_trainingSet;
+    }
+
+    public void setTrainingSet(TrainingSet set) {
+        m_trainingSet = set;
+    }
+
+    public void forwardProp(double[] in) {
+        Matrix input = Matrix.fromArray(in);
         for (int i = 0; i < layers.length; i++) {
             Layer layer = layers[i];
             Matrix prevActivations = i == 0 ? input : getLayer(i-1).activations;
@@ -38,5 +52,62 @@ public class NeuralNetwork {
             layer.activations.add(layer.biases);
             layer.activations.sigmoid();
         }
+    }
+
+    public void backwardProp() {
+        Matrix input = Matrix.fromArray(m_trainingSet.getInput());
+        Matrix target = Matrix.fromArray(m_trainingSet.getOutput());
+        Matrix netError = Matrix.subtract(target, getOutputLayer().activations);
+        for (int i = 0; i < layers.length; i++) {
+            int layerIndex = layers.length-i-1;
+            Layer previousLayer = layerIndex != 0 ? getLayer(layerIndex - 1) : null;
+            Layer currentLayer = getLayer(layerIndex);
+            Matrix error;
+            if (i == 0) {
+                error = netError;
+            } else {
+                Layer nextLayer = getLayer(layerIndex + 1);
+                Matrix wT = Matrix.transpose(nextLayer.weights);
+                error = Matrix.multiply(wT, netError);
+            }
+
+            Matrix gradient = currentLayer.activations.dsigmoid();
+            gradient.multiply(error);
+            gradient.multiply(m_learningRate);
+
+            Matrix prevActivations = layerIndex == 0 ?
+                    Matrix.transpose(input) : Matrix.transpose(previousLayer.activations);
+            Matrix delta = Matrix.multiply(gradient, prevActivations);
+            currentLayer.weights.add(delta);
+            currentLayer.biases.add(gradient);
+        }
+    }
+
+    public void train(int iterations) {
+        for (int i = 0; i < iterations; i++) {
+            forwardProp(m_trainingSet.getInput());
+            backwardProp();
+        }
+
+        //System.out.println(getOutputLayer().activations.toArray());
+        //System.out.println(Arrays.toString(m_trainingSet.getOutput()));
+    }
+
+    public void predict(double[] input) {
+        forwardProp(input);
+        System.out.println(Arrays.toString(input));
+        System.out.println(getOutputLayer().activations.toArray());
+    }
+
+    public double meanSqError() {
+        double sum = 0;
+        List<Double> actualOut = getOutputLayer().activations.toArray();
+        double[] expectedOut = m_trainingSet.getOutput();
+        for (int i = 0; i < actualOut.size(); i++) {
+            sum += Math.pow((expectedOut[i] - actualOut.get(i)), 2);
+        }
+
+        sum /= actualOut.size();
+        return sum;
     }
 }

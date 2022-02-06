@@ -14,7 +14,7 @@ public class Layer {
         m_network = network;
 
         if (m_index == 0) {
-            weights = new Matrix(m_neurons, m_network.getInputSize());
+            weights = new Matrix(m_neurons, m_network.getTrainingSet().getInput().length);
         } else {
             weights = new Matrix(m_neurons, m_network.getLayer(m_index-1).getSize());
         }
