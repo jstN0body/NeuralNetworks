@@ -1,5 +1,6 @@
 package com.github.jstN0body.neuralNetworks;
 
+import com.github.jstN0body.neuralNetworks.training.ScalaStudent;
 import com.github.jstN0body.neuralNetworks.training.Student;
 import com.github.jstN0body.neuralNetworks.training.TrainingSet;
 
@@ -47,7 +48,7 @@ public class Main {
                         output[i-5] = Double.parseDouble(values[i].replaceAll("\"", "")) / 100;
                     }
                 }
-                students.add(new Student(Student.parseValues(input), output));
+                students.add(new Student(ScalaStudent.parseValues(input), output));
             }
             scanner.close();
         } catch (Exception e) {
