@@ -66,4 +66,17 @@ object NetworkUtil {
     scanner.close
     biases
   }
+
+  def generateSaveFiles(layers: Array[Layer]): Unit = {
+    for (i <- 0 to layers.length) {
+      try {
+        val weights = new File(s"weightsBiasesFiles/weights_$i.txt")
+        val biases = new File(s"weightsBiasesFiles/biases_$i.txt")
+        if (weights.createNewFile) println(s"Created: $weights")
+        if (biases.createNewFile) println(s"Created: $biases")
+      } catch (e: Exception) {
+        // ignore exception
+      }
+    }
+  }
 }

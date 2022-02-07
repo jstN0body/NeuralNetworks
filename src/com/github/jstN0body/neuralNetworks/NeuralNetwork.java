@@ -1,6 +1,7 @@
 package com.github.jstN0body.neuralNetworks;
 
 import com.github.jstN0body.neuralNetworks.training.TrainingSet;
+import com.github.jstN0body.neuralNetworks.NetworkUtil;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,6 +26,8 @@ public class NeuralNetwork {
 
         outputLayer = new Layer(trainingSet.getOutput().length, layerAmount-1, this);
         layers[layerAmount-1] = outputLayer;
+
+        NetworkUtil.generateSaveFiles(layers);
     }
 
     public Layer getLayer(int layer) {
@@ -105,4 +108,5 @@ public class NeuralNetwork {
         sum /= actualOut.size();
         return sum;
     }
+
 }
