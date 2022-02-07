@@ -67,8 +67,8 @@ object NetworkUtil {
     biases
   }
 
-  def generateSaveFiles(layers: Array[Layer]): Unit = {
-    for (i <- 0 to layers.length) {
+  def generateSaveFiles(totalLayers: Int): Unit = {
+    for (i <- 0 to totalLayers) {
       try {
         val weights = new File(s"weightsBiasesFiles/weights_$i.txt")
         val biases = new File(s"weightsBiasesFiles/biases_$i.txt")
