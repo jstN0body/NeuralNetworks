@@ -25,6 +25,12 @@ public class Matrix {
         }
     }
 
+    public void set(double[][] data) {
+        rows = data.length;
+        cols = data[0].length;
+        this.data = data;
+    }
+
     public void print() {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
