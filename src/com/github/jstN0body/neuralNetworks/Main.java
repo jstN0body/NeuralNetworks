@@ -43,9 +43,9 @@ public class Main {
                 String[] input = new String[5];
                 double[] output = new double[3];
                 for (int i = 0; i < values.length; i++) {
-                    String value = values[i].replaceAll("\"", "");
+                    String value = values[i].replaceAll("\"", ""); // remove all quotation marks
                     if (i < 5) {
-                        input[i] = value; // Remove all quotation marks.
+                        input[i] = value;
                     } else {
                         output[i-5] = Double.parseDouble(value) / 100;
                     }
