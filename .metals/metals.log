@@ -11260,3 +11260,162 @@ WARNING: Unmatched cancel notification for request id 6567
 2022.02.07 17:21:38 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/NetworkUtil.scala
 2022.02.07 17:21:43 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/NetworkUtil.scala
 2022.02.07 17:22:08 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/NetworkUtil.scala
+2022.02.07 19:48:47 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /workspace/NeuralNetworks/.metals/lsp.trace.json or /home/gitpod/.cache/metals/lsp.trace.json
+2022.02.07 19:48:49 INFO  logging to file /workspace/NeuralNetworks/.metals/metals.log
+2022.02.07 19:48:49 INFO  Started: Metals version 0.11.1 in workspace '/workspace/NeuralNetworks' for client Gitpod Code 1.64.0.
+2022.02.07 19:48:49 INFO  Parse release: 11.0.13
+2022.02.07 19:48:53 INFO  time: initialize in 4.48s
+2022.02.07 19:48:57 WARN  Build server is not auto-connectable.
+2022.02.07 19:48:57 WARN  no build tool detected in workspace '/workspace/NeuralNetworks'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2022.02.07 19:48:57 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/NetworkUtil.scala
+2022.02.07 19:49:08 INFO  no build target found for /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/NetworkUtil.scala. Using presentation compiler with project's scala-library version: 3.1.0
+2022.02.07 19:49:11 INFO  time: code lens generation in 12s
+2022.02.07 19:52:58 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/NetworkUtil.scala
+2022.02.07 19:53:02 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/NetworkUtil.scala
+2022.02.07 19:53:05 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/NetworkUtil.scala
+2022.02.07 19:53:09 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/NetworkUtil.scala
+2022.02.07 19:53:31 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/NetworkUtil.scala
+2022.02.07 19:53:44 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/NetworkUtil.scala
+2022.02.07 19:53:46 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/NetworkUtil.scala
+2022.02.07 19:53:48 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/NetworkUtil.scala
+2022.02.07 19:53:51 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/NetworkUtil.scala
+2022.02.07 19:54:13 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/Layer.java
+Feb 07, 2022 7:54:13 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 98
+Exception in thread "pool-3-thread-1" java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:966)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:964)
+	at scala.collection.mutable.MutationTracker$CheckedIterator.next(MutationTracker.scala:76)
+	at scala.collection.IterableOps.head(Iterable.scala:222)
+	at scala.collection.IterableOps.head$(Iterable.scala:222)
+	at scala.collection.AbstractIterable.head(Iterable.scala:926)
+	at dotty.tools.dotc.interactive.InteractiveDriver.run(InteractiveDriver.scala:165)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.hover$$anonfun$1(ScalaPresentationCompiler.scala:349)
+	at scala.meta.internal.pc.CompilerAccess.withSharedCompiler(CompilerAccess.scala:137)
+	at scala.meta.internal.pc.CompilerAccess.withNonInterruptableCompiler$$anonfun$1(CompilerAccess.scala:125)
+	at scala.meta.internal.pc.CompilerAccess.onCompilerJobQueue$$anonfun$1(CompilerAccess.scala:197)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:139)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Exception in thread "pool-3-thread-2" java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:966)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:964)
+	at scala.collection.mutable.MutationTracker$CheckedIterator.next(MutationTracker.scala:76)
+	at scala.collection.IterableOps.head(Iterable.scala:222)
+	at scala.collection.IterableOps.head$(Iterable.scala:222)
+	at scala.collection.AbstractIterable.head(Iterable.scala:926)
+	at dotty.tools.dotc.interactive.InteractiveDriver.run(InteractiveDriver.scala:165)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.hover$$anonfun$1(ScalaPresentationCompiler.scala:349)
+	at scala.meta.internal.pc.CompilerAccess.withSharedCompiler(CompilerAccess.scala:137)
+	at scala.meta.internal.pc.CompilerAccess.withNonInterruptableCompiler$$anonfun$1(CompilerAccess.scala:125)
+	at scala.meta.internal.pc.CompilerAccess.onCompilerJobQueue$$anonfun$1(CompilerAccess.scala:197)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:139)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Exception in thread "pool-3-thread-3" java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:966)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:964)
+	at scala.collection.mutable.MutationTracker$CheckedIterator.next(MutationTracker.scala:76)
+	at scala.collection.IterableOps.head(Iterable.scala:222)
+	at scala.collection.IterableOps.head$(Iterable.scala:222)
+	at scala.collection.AbstractIterable.head(Iterable.scala:926)
+	at dotty.tools.dotc.interactive.InteractiveDriver.run(InteractiveDriver.scala:165)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.hover$$anonfun$1(ScalaPresentationCompiler.scala:349)
+	at scala.meta.internal.pc.CompilerAccess.withSharedCompiler(CompilerAccess.scala:137)
+	at scala.meta.internal.pc.CompilerAccess.withNonInterruptableCompiler$$anonfun$1(CompilerAccess.scala:125)
+	at scala.meta.internal.pc.CompilerAccess.onCompilerJobQueue$$anonfun$1(CompilerAccess.scala:197)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:139)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Exception in thread "pool-3-thread-4" java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:966)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:964)
+	at scala.collection.mutable.MutationTracker$CheckedIterator.next(MutationTracker.scala:76)
+	at scala.collection.IterableOps.head(Iterable.scala:222)
+	at scala.collection.IterableOps.head$(Iterable.scala:222)
+	at scala.collection.AbstractIterable.head(Iterable.scala:926)
+	at dotty.tools.dotc.interactive.InteractiveDriver.run(InteractiveDriver.scala:165)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.hover$$anonfun$1(ScalaPresentationCompiler.scala:349)
+	at scala.meta.internal.pc.CompilerAccess.withSharedCompiler(CompilerAccess.scala:137)
+	at scala.meta.internal.pc.CompilerAccess.withNonInterruptableCompiler$$anonfun$1(CompilerAccess.scala:125)
+	at scala.meta.internal.pc.CompilerAccess.onCompilerJobQueue$$anonfun$1(CompilerAccess.scala:197)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:139)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Exception in thread "pool-3-thread-5" java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:966)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:964)
+	at scala.collection.mutable.MutationTracker$CheckedIterator.next(MutationTracker.scala:76)
+	at scala.collection.IterableOps.head(Iterable.scala:222)
+	at scala.collection.IterableOps.head$(Iterable.scala:222)
+	at scala.collection.AbstractIterable.head(Iterable.scala:926)
+	at dotty.tools.dotc.interactive.InteractiveDriver.run(InteractiveDriver.scala:165)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.hover$$anonfun$1(ScalaPresentationCompiler.scala:349)
+	at scala.meta.internal.pc.CompilerAccess.withSharedCompiler(CompilerAccess.scala:137)
+	at scala.meta.internal.pc.CompilerAccess.withNonInterruptableCompiler$$anonfun$1(CompilerAccess.scala:125)
+	at scala.meta.internal.pc.CompilerAccess.onCompilerJobQueue$$anonfun$1(CompilerAccess.scala:197)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:139)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Exception in thread "pool-3-thread-6" java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:966)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:964)
+	at scala.collection.mutable.MutationTracker$CheckedIterator.next(MutationTracker.scala:76)
+	at scala.collection.IterableOps.head(Iterable.scala:222)
+	at scala.collection.IterableOps.head$(Iterable.scala:222)
+	at scala.collection.AbstractIterable.head(Iterable.scala:926)
+	at dotty.tools.dotc.interactive.InteractiveDriver.run(InteractiveDriver.scala:165)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.hover$$anonfun$1(ScalaPresentationCompiler.scala:349)
+	at scala.meta.internal.pc.CompilerAccess.withSharedCompiler(CompilerAccess.scala:137)
+	at scala.meta.internal.pc.CompilerAccess.withNonInterruptableCompiler$$anonfun$1(CompilerAccess.scala:125)
+	at scala.meta.internal.pc.CompilerAccess.onCompilerJobQueue$$anonfun$1(CompilerAccess.scala:197)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:139)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Exception in thread "pool-3-thread-7" java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:966)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:964)
+	at scala.collection.mutable.MutationTracker$CheckedIterator.next(MutationTracker.scala:76)
+	at scala.collection.IterableOps.head(Iterable.scala:222)
+	at scala.collection.IterableOps.head$(Iterable.scala:222)
+	at scala.collection.AbstractIterable.head(Iterable.scala:926)
+	at dotty.tools.dotc.interactive.InteractiveDriver.run(InteractiveDriver.scala:165)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.hover$$anonfun$1(ScalaPresentationCompiler.scala:349)
+	at scala.meta.internal.pc.CompilerAccess.withSharedCompiler(CompilerAccess.scala:137)
+	at scala.meta.internal.pc.CompilerAccess.withNonInterruptableCompiler$$anonfun$1(CompilerAccess.scala:125)
+	at scala.meta.internal.pc.CompilerAccess.onCompilerJobQueue$$anonfun$1(CompilerAccess.scala:197)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:139)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Exception in thread "pool-3-thread-8" java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:966)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:964)
+	at scala.collection.mutable.MutationTracker$CheckedIterator.next(MutationTracker.scala:76)
+	at scala.collection.IterableOps.head(Iterable.scala:222)
+	at scala.collection.IterableOps.head$(Iterable.scala:222)
+	at scala.collection.AbstractIterable.head(Iterable.scala:926)
+	at dotty.tools.dotc.interactive.InteractiveDriver.run(InteractiveDriver.scala:165)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.hover$$anonfun$1(ScalaPresentationCompiler.scala:349)
+	at scala.meta.internal.pc.CompilerAccess.withSharedCompiler(CompilerAccess.scala:137)
+	at scala.meta.internal.pc.CompilerAccess.withNonInterruptableCompiler$$anonfun$1(CompilerAccess.scala:125)
+	at scala.meta.internal.pc.CompilerAccess.onCompilerJobQueue$$anonfun$1(CompilerAccess.scala:197)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:139)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2022.02.07 19:54:45 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/Matrix.java
+2022.02.07 19:55:01 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/NetworkUtil.scala
+2022.02.07 19:55:06 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/NetworkUtil.scala
+2022.02.07 19:55:13 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/NetworkUtil.scala
+2022.02.07 19:55:22 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/NetworkUtil.scala
+2022.02.07 19:55:28 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/NetworkUtil.scala
+2022.02.07 19:55:44 WARN  no build target for: /workspace/NeuralNetworks/src/com/github/jstN0body/neuralNetworks/NetworkUtil.scala
+Feb 07, 2022 7:55:46 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
