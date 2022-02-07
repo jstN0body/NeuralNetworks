@@ -144,4 +144,13 @@ public class Matrix {
         return temp;
 
     }
+
+    public void addFromList(List<Double> valueList) {
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                int index = (r * c) + c;
+                this.data[r][c] = valueList.get(index);
+            }
+        }
+    }
 }

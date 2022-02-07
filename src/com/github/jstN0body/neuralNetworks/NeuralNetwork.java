@@ -43,8 +43,8 @@ public class NeuralNetwork {
         m_trainingSet = set;
     }
 
-    public void forwardProp(double[] in) {
-        Matrix input = Matrix.fromArray(in);
+    public void forwardProp() {
+        Matrix input = Matrix.fromArray(m_trainingSet.getInput());
         for (int i = 0; i < layers.length; i++) {
             Layer layer = layers[i];
             Matrix prevActivations = i == 0 ? input : getLayer(i-1).activations;
@@ -83,18 +83,13 @@ public class NeuralNetwork {
         }
     }
 
-    public void train(int iterations) {
-        for (int i = 0; i < iterations; i++) {
-            forwardProp(m_trainingSet.getInput());
-            backwardProp();
-        }
-
-        //System.out.println(getOutputLayer().activations.toArray());
-        //System.out.println(Arrays.toString(m_trainingSet.getOutput()));
+    public void train() {
+        forwardProp();
+        backwardProp();
     }
 
     public void predict(double[] input) {
-        forwardProp(input);
+        forwardProp();
         System.out.println(Arrays.toString(input));
         System.out.println(getOutputLayer().activations.toArray());
     }

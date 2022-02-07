@@ -9,12 +9,14 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+
+    public static final int TRAINING_ITERATIONS = 5000000;
     public static void main(String[] args) {
         ArrayList<Student> students = parseData();
         NeuralNetwork network = new NeuralNetwork(students.get(0), 0.25, 5, 5, 3, 3, 3);
 
-        for (int i = 0; i < 5000000; i++) {
-            network.train(1);
+        for (int i = 0; i < TRAINING_ITERATIONS; i++) {
+            network.train();
             int x = new Random().nextInt(students.size());
             network.setTrainingSet(students.get(x));
         }

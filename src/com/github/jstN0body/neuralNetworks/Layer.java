@@ -26,4 +26,8 @@ public class Layer {
     public int getSize() {
         return m_neurons;
     }
+
+    public int getIndex() {
+        return m_index;
+    }
 }
