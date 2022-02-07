@@ -1,8 +1,7 @@
 package com.github.jstN0body.neuralNetworks;
 
-import com.github.jstN0body.neuralNetworks.training.ScalaStudent;
+//import com.github.jstN0body.neuralNetworks.training.ScalaStudent;
 import com.github.jstN0body.neuralNetworks.training.Student;
-import com.github.jstN0body.neuralNetworks.training.TrainingSet;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -42,13 +41,14 @@ public class Main {
                 String[] input = new String[5];
                 double[] output = new double[3];
                 for (int i = 0; i < values.length; i++) {
+                    String value = values[i].replaceAll("\"", "");
                     if (i < 5) {
-                        input[i] = values[i].replaceAll("\"", "");
+                        input[i] = value; // Remove all quotation marks.
                     } else {
-                        output[i-5] = Double.parseDouble(values[i].replaceAll("\"", "")) / 100;
+                        output[i-5] = Double.parseDouble(value) / 100;
                     }
                 }
-                students.add(new Student(ScalaStudent.parseValues(input), output));
+                students.add(new Student(Student.parseValues(input), output));
             }
             scanner.close();
         } catch (Exception e) {
