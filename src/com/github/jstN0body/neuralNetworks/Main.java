@@ -13,7 +13,7 @@ public class Main {
 
     public static final boolean LOAD_VALUES = true; // whether to attempt to load weights and biases from file
     public static final boolean TRAIN = true; // whether to train the neural network
-    public static final int TRAINING_ITERATIONS = 5000000; // how many training iterations to perform
+    public static final int TRAINING_ITERATIONS = 4000000; // how many training iterations to perform
     public static final double[] TEST_INPUT = {0, 4, 2, 1, 0}; // the test input to be run after training
 
     public static void main(String[] args) {

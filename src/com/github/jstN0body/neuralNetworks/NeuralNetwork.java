@@ -112,7 +112,7 @@ public class NeuralNetwork {
     public void loadValues() {
         for (int i = 0; i < layers.length; i++) {
             Layer current = layers[i];
-            File weights = saveFiles._1.get(i), biases = saveFiles._1.get(i);
+            File weights = saveFiles._1.get(i), biases = saveFiles._2.get(i);
             Matrix w = NetworkUtil.loadWeights(weights), b = NetworkUtil.loadBiases(biases);
             current.weights.set(w.data);
             current.biases.set(b.data);
