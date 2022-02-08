@@ -2,7 +2,10 @@ package com.github.jstN0body.neuralNetworks;
 
 import com.github.jstN0body.neuralNetworks.training.TrainingSet;
 import com.github.jstN0body.neuralNetworks.NetworkUtil;
+import scala.Tuple2;
 
+import java.io.File;
+import java.security.KeyPair;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,6 +16,7 @@ public class NeuralNetwork {
     private final double m_learningRate;
     private final Layer[] layers;
     private final Layer outputLayer;
+    private final Tuple2<List<File>, List<File>> saveFiles;
 
 
     public NeuralNetwork(TrainingSet trainingSet, double learningRate, int layerAmount, int... hiddenLayerSizes) {
@@ -27,7 +31,7 @@ public class NeuralNetwork {
         outputLayer = new Layer(trainingSet.getOutput().length, layerAmount-1, this);
         layers[layerAmount-1] = outputLayer;
 
-        NetworkUtil.generateSaveFiles(layers);
+        saveFiles = NetworkUtil.generateSaveFiles(layerAmount);
     }
 
     public Layer getLayer(int layer) {
@@ -95,6 +99,24 @@ public class NeuralNetwork {
         forwardProp();
         System.out.println(Arrays.toString(input));
         System.out.println(getOutputLayer().activations.toArray());
+    }
+
+    public void saveValues() {
+        for (int i = 0; i < layers.length; i++) {
+            NetworkUtil.saveWeights(layers[i], saveFiles._1.get(i));
+            NetworkUtil.saveBiases(layers[i], saveFiles._2.get(i));
+        }
+        System.out.println("Weights and biases successfully saved.");
+    }
+
+    public void loadValues() {
+        for (int i = 0; i < layers.length; i++) {
+            Layer current = layers[i];
+            File weights = saveFiles._1.get(i), biases = saveFiles._1.get(i);
+            Matrix w = NetworkUtil.loadWeights(weights), b = NetworkUtil.loadBiases(biases);
+            current.weights.set(w.data);
+            current.biases.set(b.data);
+        }
     }
 
     public double meanSqError() {

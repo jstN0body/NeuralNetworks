@@ -2,6 +2,7 @@ package com.github.jstN0body.neuralNetworks;
 
 //import com.github.jstN0body.neuralNetworks.training.ScalaStudent;
 import com.github.jstN0body.neuralNetworks.training.Student;
+import scala.reflect.internal.pickling.UnPickler;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -10,18 +11,27 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static final int TRAINING_ITERATIONS = 5000000;
+    public static final boolean LOAD_VALUES = true; // whether to attempt to load weights and biases from file
+    public static final boolean TRAIN = true; // whether to train the neural network
+    public static final int TRAINING_ITERATIONS = 5000000; // how many training iterations to perform
+    public static final double[] TEST_INPUT = {0, 4, 2, 1, 0}; // the test input to be run after training
+
     public static void main(String[] args) {
         ArrayList<Student> students = parseData();
         NeuralNetwork network = new NeuralNetwork(students.get(0), 0.25, 5, 5, 3, 3, 3);
 
-        for (int i = 0; i < TRAINING_ITERATIONS; i++) {
-            network.train();
-            int x = new Random().nextInt(students.size());
-            network.setTrainingSet(students.get(x));
+        if(LOAD_VALUES) network.loadValues();
+
+        if (TRAIN) {
+            for (int i = 0; i < TRAINING_ITERATIONS; i++) {
+                network.train();
+                int x = new Random().nextInt(students.size());
+                network.setTrainingSet(students.get(x));
+            }
         }
 
-        network.predict(new double[] {0, 4, 2, 1, 0});
+        network.predict(TEST_INPUT);
+        network.saveValues();
     }
 
     /*public static TrainingSet randomTrainingSet() {

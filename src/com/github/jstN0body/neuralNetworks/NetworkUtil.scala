@@ -1,9 +1,9 @@
 package com.github.jstN0body.neuralNetworks
 
-import com.github.jstN0body.neuralNetworks.Layer
 import java.io.File
 import java.io.BufferedWriter
 import java.io.FileWriter
+import java.util
 import java.util.Scanner
 
 object NetworkUtil {
@@ -11,27 +11,25 @@ object NetworkUtil {
     val writer = new BufferedWriter(new FileWriter(file))
     val rows = layer.weights.rows
     val columns = layer.weights.cols
-    val index = layer.getIndex
-    writer.write(s"$index $rows $columns \n")
+    writer.write(s"$rows $columns \n")
     
-    val weights: List[Double] = layer.weights.toArray
-    for (w <- weights) {
+    val weights: util.List[java.lang.Double] = layer.weights.toArray
+    for (w <- weights.toArray) {
       writer.write(s"$w ")
     }
-    writer.close
+    writer.close()
   }
 
   def saveBiases(layer: Layer, file: File): Unit = {
     val writer = new BufferedWriter(new FileWriter(file))
-    val length = layer.biases.getRows
-    val index = layer.getIndex
-    writer.write(s"$index $length \n")
+    val length = layer.biases.rows
+    writer.write(s"$length \n")
 
-    val biases: List[Double] = layer.biases.toArray
-    for (b <- biases) {
-      writer.write(s"$b")
+    val biases: util.List[java.lang.Double] = layer.biases.toArray
+    for (b <- biases.toArray) {
+      writer.write(s"$b ")
     }
-    writer.close
+    writer.close()
   }
 
   def loadWeights(file: File): Matrix = {
@@ -39,15 +37,15 @@ object NetworkUtil {
     val rows = scanner.nextInt
     val cols = scanner.nextInt
 
-    val values = ArrayBuffer[Double]()
+    val values = new util.ArrayList[java.lang.Double]
     while (scanner.hasNextDouble) {
-      values.append(scanner.nextDouble)
+      values.add(scanner.nextDouble)
     }
 
     val weights = new Matrix(rows, cols)
-    weights.addFromList(values.toList)
-    
-    scanner.close
+    weights.addFromList(values)
+
+    scanner.close()
     weights
   }
 
@@ -55,28 +53,33 @@ object NetworkUtil {
     val scanner = new Scanner(file)
     val length = scanner.nextInt
 
-    val values = ArrayBuffer[Double]()
+    val values = new util.ArrayList[java.lang.Double]
     while (scanner.hasNextDouble) {
-      values.append(scanner.nextDouble)
+      values.add(scanner.nextDouble)
     }
 
     val biases = new Matrix(length, 1)
-    biases.addFromList(values.toList)
+    biases.addFromList(values)
 
-    scanner.close
+    scanner.close()
     biases
   }
 
-  def generateSaveFiles(totalLayers: Int): Unit = {
-    for (i <- 0 to totalLayers) {
+  def generateSaveFiles(totalLayers: Int): (util.List[File], util.List[File]) = {
+    val weightsList = new util.ArrayList[File]
+    val biasesList = new util.ArrayList[File]
+    for (i <- Range(0, totalLayers)) {
       try {
-        val weights = new File(s"weightsBiasesFiles/weights_$i.txt")
-        val biases = new File(s"weightsBiasesFiles/biases_$i.txt")
+        val weights = new File(s"src/saveFiles/weights_$i.txt")
+        weightsList.add(weights)
+
+        val biases = new File(s"src/saveFiles/biases_$i.txt")
+        biasesList.add(biases)
         if (weights.createNewFile) println(s"Created: $weights")
         if (biases.createNewFile) println(s"Created: $biases")
-      } catch (e: Exception) {
-        // ignore exception
       }
     }
+
+    (weightsList, biasesList)
   }
 }
