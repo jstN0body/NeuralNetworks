@@ -22,8 +22,7 @@ object NetworkUtil {
 
   def saveBiases(layer: Layer, file: File): Unit = {
     val writer = new BufferedWriter(new FileWriter(file))
-    val length = layer.biases.rows
-    writer.write(s"$length \n")
+    writer.write(s"${layer.biases.rows} \n")
 
     val biases: util.List[java.lang.Double] = layer.biases.toArray
     for (b <- biases.toArray) {
